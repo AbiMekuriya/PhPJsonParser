@@ -1,0 +1,10 @@
+{
+  "identifier": "abimalek",
+  "name": "coolBoy",
+  "flags": {
+    "hasStock": true
+  },
+  "stock": {
+    "maxSells": 50
+  }
+}

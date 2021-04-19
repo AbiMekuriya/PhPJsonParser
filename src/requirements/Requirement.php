@@ -30,13 +30,17 @@ class Requirement{
      */
     private $requirement;
 
-    private function __construct(string $requirement, ?int $type = null)
+    public function __construct(string $requirement, ?int $type = null)
     {
         $this->requirement = $requirement;
         $this->valueType = ($type === null) ? self::TYPE_ANY : $type;
         if (!in_array($type, self::TYPES)){
             throw new JsonParserException("Nonexistent type given PHP-JsonParser");
         }
+    }
+
+    public function getRequirement(): string {
+        return $this->requirement;
     }
 
     public function meetsRequirements(array $data): bool {
