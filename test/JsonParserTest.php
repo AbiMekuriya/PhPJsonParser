@@ -4,6 +4,7 @@ namespace Test;
 
 use JsonParser\FileJsonParser;
 use JsonParser\parsers\ComponentParser;
+use JsonParser\requirements\Requirement;
 use PHPUnit\Framework\TestCase;
 
 class JsonParserTest extends TestCase{
@@ -33,5 +34,25 @@ class JsonParserTest extends TestCase{
             $this->assertTrue($name !== null);
         });
         $fileParser->execute();
+    }
+
+    public function testIterativeComponent(){
+        ComponentParser::register(new ComponentParser("items", function ($data, &...$args){
+            $args[0][] = [$data["id"] . ":" . $data["meta"] . ":" . $data["count"]];
+        }));
+        $thing = FileJsonParser::create(getcwd() . "/test.json", []);
+        $thing->addIterativeParseComponent("items", ComponentParser::get("itemParser", $items), [new Requirement("flags.item", Requirement::TYPE_BOOL, true)]);
+        $thing->onComplete(function ()use(&$items){
+            $this->assertTrue(is_array($items));
+        });
+        $thing->execute();
+    }
+
+    public function testMainRequirementNotMetCallable(){
+        $thing = FileJsonParser::create(getcwd() . "/test.json", [new Requirement("nonexistent.test")]);
+        $thing->onMainRequirementNotMet(function (Requirement $requirement){
+            $this->assertTrue($requirement instanceof Requirement);
+        });
+        $thing->execute();
     }
 }

@@ -93,7 +93,7 @@ class FileJsonParser{
         if ($location === ""){
             return $this->fileData;
         }
-        if (($requirement = new Requirement($location))->meetsRequirements($this->fileData)){
+        if ((new Requirement($location))->meetsRequirements($this->fileData)){
             $split = explode(".", $location);
             $data = $this->fileData;
             foreach ($split as $location){
@@ -113,10 +113,10 @@ class FileJsonParser{
         return true;
     }
 
-    public function getUnmetRequirement(): string {
+    public function getUnmetRequirement(): Requirement {
         foreach ($this->requirements as $requirement){
             if (!$requirement->meetsRequirements($this->fileData)){
-                return $requirement->getRequirement();
+                return $requirement;
             }
         }
         throw new JsonParserException("All requirements were met!");

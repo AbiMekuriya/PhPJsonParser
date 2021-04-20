@@ -1,4 +1,19 @@
 {
   "name": "Abimalek",
-  "identifier": "1847204820"
+  "identifier": "1847204820",
+  "flags": {
+    "item": true
+  },
+  "items": {
+    "1": {
+      "id": 3,
+      "meta": 5,
+      "count": 7
+    },
+    "2": {
+      "id": 3,
+      "meta": 5,
+      "count": 7
+    }
+  }
 }
