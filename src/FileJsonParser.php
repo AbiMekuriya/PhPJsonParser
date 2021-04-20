@@ -45,12 +45,12 @@ class FileJsonParser{
         $this->completionCallables[] = $completeCallable;
     }
 
-    public function addParseComponent(ComponentParser $parser, array $requirements, string $location = ""){
+    public function addParseComponent(ComponentParser $parser, array $requirements = [], string $location = ""){
 
         $this->componentParsers[] = [self::TYPE_NORMAL, $parser, $requirements, $location];
     }
 
-    public function addIterativeParseComponent(string $location, ComponentParser $parser, array $requirements){
+    public function addIterativeParseComponent(string $location, ComponentParser $parser, array $requirements = []){
         $this->componentParsers[] = [self::TYPE_ITERATIVE, $parser, $requirements, $location];
     }
 
