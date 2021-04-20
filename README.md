@@ -16,8 +16,11 @@ The following PHP versions are guaranteed to work.
  
 ## Usage
   
- //WILL BE DOING SOON ->
- Download the library using [composer](https://packagist.org/packages/gabrielrcouto/php-gui):
+ Download the library using [composer](https://packagist.org/packages/abimekuriya/php-json-parser):
+
+```php
+$ composer require abimekuriya/php-json-parser
+```
 
 We can now begin working with the Api.
 
@@ -42,3 +45,4 @@ $fileParser->execute();
 ```
 
 ## In Depth
+<<Gonna do soon
