@@ -46,6 +46,7 @@ class FileJsonParser{
     }
 
     public function addParseComponent(ComponentParser $parser, array $requirements, string $location = ""){
+
         $this->componentParsers[] = [self::TYPE_NORMAL, $parser, $requirements, $location];
     }
 
@@ -71,12 +72,12 @@ class FileJsonParser{
             }
             $data = $this->getDataForLocation($parseData[3]);
             if ($type === self::TYPE_NORMAL){
-                $parser->parse($data, $parser->getParams());
+                $parser->parse($data, ...$parser->getParams());
                 continue;
             }
             if ($type === self::TYPE_ITERATIVE && is_array($data)){
                 foreach ($data as $datum){
-                    $parser->parse($datum, $parser->getParams());
+                    $parser->parse($datum, ...$parser->getParams());
                 }
                 continue;
             }

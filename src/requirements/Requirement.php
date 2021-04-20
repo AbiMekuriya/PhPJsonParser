@@ -30,10 +30,13 @@ class Requirement{
      */
     private $requirement;
 
-    public function __construct(string $requirement, ?int $type = null)
+    private $wantedValue = null;
+
+    public function __construct(string $requirement, ?int $type = null, $wantedValue = null)
     {
         $this->requirement = $requirement;
         $this->valueType = ($type === null) ? self::TYPE_ANY : $type;
+        $this->wantedValue = $wantedValue;
         if (!in_array($type, self::TYPES)){
             throw new JsonParserException("Nonexistent type given PHP-JsonParser");
         }
@@ -53,11 +56,14 @@ class Requirement{
                 return false;
             }
         }
-        return self::meetsTypeRequirement($this->valueType, $d);
+        return self::meetsTypeRequirement($this->valueType, $d, $this->wantedValue);
     }
 
 
-    public static function meetsTypeRequirement(int $type, $value): bool {
+    public static function meetsTypeRequirement(int $type, $value, $wantedValue = null): bool {
+        if ($wantedValue !== null){
+            return ($wantedValue === $value);
+        }
         switch ($type){
             case self::TYPE_ANY:
                 return true;

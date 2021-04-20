@@ -1,0 +1,49 @@
+{
+    "name": "AbiMekuriya/PhPJsonParser",
+    "type": "library",
+    "description": "Reusable php library for parsing json files and array data!",
+    "keywords": [
+        "AbiMekuriya",
+        "PhPJsonParser"
+    ],
+    "homepage": "https://github.com/AbiMekuriya/PhPJsonParser",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abimalek Mekuriya",
+            "email": "abi.mek2005@gmail.com",
+            "homepage": "https://github.com/AbiMekuriya",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "~7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=8.0",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JsonParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
