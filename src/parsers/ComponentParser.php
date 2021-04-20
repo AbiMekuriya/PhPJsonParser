@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace JsonParser\parsers;
+namespace abimek\JsonParser\parsers;
 
-use JsonParser\requirements\Requirement;
+use abimek\JsonParser\requirements\Requirement;
 
 class ComponentParser{
 

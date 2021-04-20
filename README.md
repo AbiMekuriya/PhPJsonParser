@@ -10,6 +10,7 @@ you can write json parsers that are moulder allowing you to implement the same r
 
 ## Requirements
 The following PHP versions are guaranteed to work.
+ - PHP 5.6
  - PHP 7
  - PHP 8
  
@@ -23,9 +24,9 @@ We can now begin working with the Api.
 ### Quick Example
 ```php
 <?php
-use JsonParser\FileJsonParser;
-use JsonParser\parsers\ComponentParser;
-use JsonParser\requirements\Requirement;
+use abimek\JsonParser\FileJsonParser;
+use abimek\JsonParser\parsers\ComponentParser;
+use abimek\JsonParser\requirements\Requirement;
 
  ComponentParser::register(new ComponentParser("nameIdentifier", function ($data, &...$args){
      $args[0] = $data["name"];

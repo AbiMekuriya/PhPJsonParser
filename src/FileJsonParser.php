@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace JsonParser;
+namespace abimek\JsonParser;
 
-use JsonParser\exception\JsonParserException;
-use JsonParser\parsers\ComponentParser;
-use JsonParser\requirements\Requirement;
+use abimek\JsonParser\exception\JsonParserException;
+use abimek\JsonParser\parsers\ComponentParser;
+use abimek\JsonParser\requirements\Requirement;
 
 class FileJsonParser{
     

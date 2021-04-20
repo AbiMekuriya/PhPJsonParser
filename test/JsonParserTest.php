@@ -1,10 +1,10 @@
 <?php
 
-namespace Test;
+namespace abimek\PhPJsonParser\Test;
 
-use JsonParser\FileJsonParser;
-use JsonParser\parsers\ComponentParser;
-use JsonParser\requirements\Requirement;
+use abimek\JsonParser\FileJsonParser;
+use abimek\JsonParser\parsers\ComponentParser;
+use abimek\JsonParser\requirements\Requirement;
 use PHPUnit\Framework\TestCase;
 
 class JsonParserTest extends TestCase{

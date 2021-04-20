@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace JsonParser\exception;
+namespace abimek\JsonParser\exception;
 
 use Exception;
 use RuntimeException;

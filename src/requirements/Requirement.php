@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace JsonParser\requirements;
+namespace abimek\JsonParser\requirements;
 
-use JsonParser\exception\JsonParserException;
+use abimek\JsonParser\exception\JsonParserException;
 
 class Requirement{
 
