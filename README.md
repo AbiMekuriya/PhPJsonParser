@@ -43,6 +43,3 @@ $fileParser->onComplete(function ()use(&$name, &$identifier){
 });
 $fileParser->execute();
 ```
-
-## In Depth
-<<Gonna do soon
